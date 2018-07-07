@@ -5,5 +5,23 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "index_bunble.js"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exlude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          "css-loader"
+        ]
+      }
+    ]
   }
 };
